@@ -6,8 +6,10 @@ import urllib3
 # Configuração da Página
 st.set_page_config(page_title="LIA - Lotofácil Analyzer", page_icon="🤖")
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-st.title("🤖 LIA - Lotofácil Intelligence Analyzer")
+# Título Centralizado e Colorido
+st.markdown("<h1 style='text-align: center; color: #209144;'>🍀 LIA - Lotofácil Intelligence Analyzer</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 18px;'>Sistema Inteligente de Análise e Sugestões</p>", unsafe_allow_html=True)
+st.markdown("---")
 st.markdown("---")
 
 # 1. Carregar Dados
@@ -61,8 +63,7 @@ todos_numeros_filtrados = base_filtrada[colunas_bolas].values.flatten()
 frequencia = pd.Series(todos_numeros_filtrados).value_counts().sort_index()
 
 # Exibindo o gráfico
-st.bar_chart(frequencia)
-
+st.bar_chart(frequencia, color="#209144")
 # Calculando estatísticas em tempo real
 numero_campeao = frequencia.idxmax()
 vezes_campeao = frequencia.max()
@@ -73,9 +74,11 @@ vezes_sumido = frequencia.min()
 col1, col2 = st.columns(2)
 
 with col1:
+    # Delta em verde (padrão) para o número quente
     st.metric(label="🔥 Número Quente", value=f"Bola {numero_campeao}", delta=f"{vezes_campeao} saídas")
 
 with col2:
+    # Delta em vermelho/cinza para o número frio (delta_color="inverse")
     st.metric(label="❄️ Número Frio", value=f"Bola {numero_sumido}", delta=f"{vezes_sumido} saídas", delta_color="inverse")
 
 st.info(f"💡 Dica: Nos últimos {quantidade} concursos, a bola {numero_campeao} foi a que mais apareceu!")
