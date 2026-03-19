@@ -60,7 +60,22 @@ base_filtrada = df.tail(quantidade)
 todos_numeros_filtrados = base_filtrada[colunas_bolas].values.flatten()
 frequencia = pd.Series(todos_numeros_filtrados).value_counts().sort_index()
 
-# Exibindo o gráfico atualizado
+# Exibindo o gráfico
 st.bar_chart(frequencia)
 
-st.info(f"💡 Analisando os números dos últimos {quantidade} concursos.")
+# Calculando estatísticas em tempo real
+numero_campeao = frequencia.idxmax()
+vezes_campeao = frequencia.max()
+numero_sumido = frequencia.idxmin()
+vezes_sumido = frequencia.min()
+
+# Criando colunas para os destaques
+col1, col2 = st.columns(2)
+
+with col1:
+    st.metric(label="🔥 Número Quente", value=f"Bola {numero_campeao}", delta=f"{vezes_campeao} saídas")
+
+with col2:
+    st.metric(label="❄️ Número Frio", value=f"Bola {numero_sumido}", delta=f"{vezes_sumido} saídas", delta_color="inverse")
+
+st.info(f"💡 Dica: Nos últimos {quantidade} concursos, a bola {numero_campeao} foi a que mais apareceu!")
