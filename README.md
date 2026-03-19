@@ -1,16 +1,22 @@
-# 🤖 LIA - Lotofácil Intelligence Analyzer
+# 🍀 LIA - Lotofácil Intelligence Analyzer
 
-O LIA é um assistente desenvolvido em **Python** focado em análise estatística de dados históricos e geração de jogos inteligentes baseados em padrões matemáticos.
+O **LIA** é uma aplicação web de análise estatística para a Lotofácil, desenvolvida para transformar dados brutos de sorteios em insights visuais e sugestões inteligentes.
 
 ## 🚀 Funcionalidades
-- **Leitura Automática:** Processa arquivos CSV com históricos de sorteios.
-- **Análise Estatística:** Calcula soma de dezenas e proporção de números pares/ímpares.
-- **Gerador Filtrado:** Cria sugestões de jogos que respeitam as tendências reais (Soma, Pares e Números Primos).
+- **Sugestão de Jogos:** Algoritmo que gera apostas baseadas em tendências recentes.
+- **Análise Dinâmica:** Slider interativo para definir o período de análise (ex: últimos 10, 50 ou 100 sorteios).
+- **Dashboard de Frequência:** Gráfico interativo mostrando a saída de cada dezena.
+- **Métricas Quentes/Frias:** Identificação instantânea dos números com maior e menor incidência.
 
 ## 🛠️ Tecnologias Utilizadas
-- **Python 3.x**
-- **Pandas:** Para manipulação e análise de dados.
-- **Git/GitHub:** Para versionamento e portfólio.
+- **Linguagem:** Python 3.13
+- **Framework Web:** Streamlit
+- **Processamento de Dados:** Pandas
+- **Versionamento:** Git & GitHub
+
+## 🌍 Acesse o Projeto
+O app está publicado e disponível aqui: 
+[https://lia-lotofacil-marcos.streamlit.app](https://lia-lotofacil-marcos.streamlit.app)
 
 ---
-*Projeto desenvolvido como parte dos meus estudos em Análise e Desenvolvimento de Sistemas.*
+*Projeto desenvolvido como parte dos estudos em Análise e Desenvolvimento de Sistemas.*
