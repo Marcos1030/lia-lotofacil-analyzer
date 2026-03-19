@@ -48,3 +48,16 @@ if st.button("Gerar Jogos Agora 🚀"):
 st.markdown("---")
 if st.checkbox("Mostrar histórico de sorteios"):
     st.dataframe(df.tail(10)) # Mostra os últimos 10
+    # 4. Análise Visual (Gráfico)
+st.markdown("---")
+st.subheader("📈 Análise de Frequência")
+st.write("Veja quais números mais apareceram nos últimos sorteios da sua base.")
+
+# Contagem de todas as bolas no DataFrame
+todos_numeros = df[colunas_bolas].values.flatten()
+frequencia = pd.Series(todos_numeros).value_counts().sort_index()
+
+# Criando o gráfico de barras
+st.bar_chart(frequencia)
+
+st.info("💡 Dica: Os números com as barras mais altas são os que mais saíram recentemente.")
